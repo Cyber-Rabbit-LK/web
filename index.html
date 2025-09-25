@@ -217,6 +217,43 @@
             overflow: hidden;
             margin-top: 1rem;
         }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .nav-link {
+            margin: 0 1.5rem;
+            color: #b19cd9;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #da70d6;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8a2be2, #da70d6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+
+
+
+
 
         .download-btn:hover {
             transform: scale(1.05);
@@ -299,6 +336,13 @@
     <header>
         <h1 class="logo">CYBER RABBIT</h1>
         <p class="tagline">EXPERIENCE THE FUTURE TODAY</p>
+
+        <nav>
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+
     </header>
     
     <!-- Main content -->
@@ -395,6 +439,7 @@
 </body>
 
 </html>
+
 
 
 
