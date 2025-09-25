@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Rabbit | About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" sizes="32x32" href="1.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a16;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        /* Cyberpunk grid background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(10, 10, 22, 0.9), rgba(10, 10, 22, 0.9)),
+                repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(90, 30, 150, 0.1) 50px, rgba(90, 30, 150, 0.1) 51px),
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(90, 30, 150, 0.1) 50px, rgba(90, 30, 150, 0.1) 51px);
+            z-index: -2;
+        }
+
+        /* Animated scanline effect */
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 95%, rgba(255, 255, 255, 0.03) 100%);
+            background-size: 100% 5px;
+            z-index: -1;
+            animation: scanline 10s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+
+        /* Glitch effect for headings */
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        /* Header styling */
+        header {
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #8a2be2, #da70d6, #9370db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.7);
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+            animation: glitch 0.5s infinite;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #b19cd9;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .nav-link {
+            margin: 0 1.5rem;
+            color: #b19cd9;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #da70d6;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8a2be2, #da70d6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Main content area */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* About section */
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            width: 100%;
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 2rem;
+            background: rgba(20, 20, 40, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+        }
+
+        .about-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(138, 43, 226, 0.1), rgba(218, 112, 214, 0.1));
+            z-index: -1;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #da70d6;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, #8a2be2, #da70d6);
+        }
+
+        .about-text {
+            line-height: 1.6;
+            color: #b19cd9;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact section */
+        .contact-section {
+            width: 100%;
+            padding: 2rem;
+            background: rgba(20, 20, 40, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            margin: 2rem 0;
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 15%);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem;
+            background: rgba(30, 30, 50, 0.5);
+            border-radius: 10px;
+            border-left: 3px solid #8a2be2;
+        }
+
+        .contact-item h3 {
+            color: #da70d6;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-item p {
+            color: #b19cd9;
+        }
+
+        /* Social media section */
+        .social-section {
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(20, 20, 40, 0.7);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            color: #da70d6;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.5);
+            color: #fff;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+            color: #b19cd9;
+            font-weight: 300;
+        }
+
+        /* Animation for content on load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-content, .contact-section, .social-section {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .about-content { animation-delay: 0.2s; }
+        .contact-section { animation-delay: 0.4s; }
+        .social-section { animation-delay: 0.6s; }
+
+        /* Rabbit icon animation */
+        .rabbit-icon {
+            display: inline-block;
+            margin-left: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .about-section {
+                flex-direction: column;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+            }
+            
+            .nav-link {
+                margin: 0 0.8rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="grid-bg"></div>
+    <div class="scanline"></div>
+    
+    <!-- Header section -->
+    <header>
+        <h1 class="logo">CYBER RABBIT <span class="rabbit-icon">🐇</span></h1>
+        <p class="tagline">LEAP INTO THE FUTURE</p>
+        <nav>
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Portfolio</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+    </header>
+    
+    <!-- Main content -->
+    <div class="container">
+        <!-- About section -->
+        <section class="about-section">
+            <div class="about-content">
+                <h2 class="section-title">About Cyber Rabbit</h2>
+                <p class="about-text">
+                    Cyber Rabbit is a cutting-edge technology collective focused on pushing the boundaries of digital innovation. 
+                    Founded in 2042, we specialize in cybernetic enhancements, neural interfaces, and next-generation software solutions.
+                </p>
+                <p class="about-text">
+                    Our team of elite developers, designers, and engineers work tirelessly to create technology that seamlessly 
+                    integrates with human capabilities, enhancing both productivity and quality of life in our increasingly digital world.
+                </p>
+                <p class="about-text">
+                    At Cyber Rabbit, we believe in a future where technology and humanity coexist in perfect harmony. Our mission 
+                    is to accelerate this future through innovative solutions that are both powerful and accessible.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Contact section -->
+        <section class="contact-section">
+            <h2 class="section-title">Contact Details</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> Headquarters</h3>
+                    <p>Neo-Tokyo District, Cyber City 7</p>
+                </div>
+                <div class="contact-item">
+                    <h3><i class="fas fa-phone"></i> Contact Number</h3>
+                    <p>+81 3-XXXX-XXXX</p>
+                </div>
+                <div class="contact-item">
+                    <h3><i class="fas fa-envelope"></i> Email Address</h3>
+                    <p>info@cyberrabbit.tech</p>
+                </div>
+                <div class="contact-item">
+                    <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                    <p>24/7 - We never sleep</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Social media section -->
+        <section class="social-section">
+            <h2 class="section-title">Connect With Us</h2>
+            <p class="about-text">Follow Cyber Rabbit across the digital realm for the latest updates and innovations.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2042 Cyber Rabbit. All rights reserved. | Leap into the future with us.</p>
+    </footer>
+
+    <script>
+        // Add interactive effects
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.1)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+        
+        // Add glitch effect on hover for logo
+        const logo = document.querySelector('.logo');
+        logo.addEventListener('mouseenter', function() {
+            this.style.animation = 'glitch 0.3s infinite';
+        });
+        
+        logo.addEventListener('mouseleave', function() {
+            this.style.animation = 'glitch 0.5s infinite';
+        });
+        
+        // Add pulse animation to contact items
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
